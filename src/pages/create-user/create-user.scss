@@ -1,0 +1,49 @@
+page-create-user {
+	.center {
+		text-align: center;
+	}
+
+	.card-container {
+		position: absolute;
+		top: 30%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+
+	ion-card.card {
+		max-width: 250px;
+		margin: 0 auto;
+	}
+
+	ion-card-content {
+		color: black;
+	}
+
+	ion-card-header {
+		font-weight: bold;
+	}
+
+	.accept-container {
+		text-align: center;
+	}
+
+	.backButton {
+		position: absolute;
+		top: 2px;
+		left: 5px;
+
+		.button-md {
+			margin-top: 10px;
+		}
+	}
+
+	ion-list.errors {
+		ion-item {
+			color: red;
+			font-size: 12px;
+		}
+	}
+
+}

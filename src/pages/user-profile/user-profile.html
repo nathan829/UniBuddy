@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>User Settings</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div class="profile-image-outer-container">
+    <div class="profile-image-container">
+      <img src="{{userImage}}" />
+      <br/>
+      {{ user?.name }}
+    </div>
+  </div>
+  <ion-list class="settings-list" no-lines>
+    <button ion-item (click)="changeUserPushed()">
+      <h2>Change user</h2>
+      <p>Switch between existing users or create a new user</p>
+    </button>
+    <button ion-item (click)="confirmDeletion()">
+      <h2>Delete current user</h2>
+      <p>Change to the appropriate user before deleting</p>
+    </button>
+  </ion-list>
+
+</ion-content>

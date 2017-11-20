@@ -1,0 +1,25 @@
+<ion-content padding>
+  <h1 class="center">Create User</h1>
+  
+  <div class="card-container">
+    <ion-card>
+      <!-- <ion-card-header class="center">Name of User</ion-card-header>  -->
+      <ion-card-content>
+        <ion-input placeholder="Enter name here..." [(ngModel)]="userName"></ion-input>
+        <div class="accept-container">
+          <button ion-button (click)="setUser()">Accept</button>
+        </div>
+        <ion-list class="errors">
+          <ion-item *ngFor="let error of errors">
+            {{ error }}
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="backButtonNeeded" class="backButton">
+    <button ion-button clear (click)="back()">Cancel</button>
+  </div>
+  
+</ion-content>

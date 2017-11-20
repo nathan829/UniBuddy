@@ -1,0 +1,47 @@
+page-user-profile {
+
+	ion-header.header .toolbar-background {
+		background-color: #333333;
+	}
+
+	ion-title.title {
+		.toolbar-title {
+			color: map-get($colors, light);
+		}
+	}
+
+	button.back-button {
+		color: map-get($colors, primary);
+	}
+
+	ion-navbar.toolbar-md {
+		min-height: 44px;
+	}
+
+	.profile-image-outer-container {
+		padding-top: 20px;
+
+		.profile-image-container {
+			text-align: center;
+			width: 35%;
+			margin: 0 auto;
+		}
+	}
+
+	.change-user {
+		font-size: 10px;
+	}
+
+	ion-list.settings-list.list {
+		margin-top: 20px;
+
+		button.item {
+			background-color: transparent;
+
+			h2 {
+				color: white;
+			}
+		}
+	}
+
+}

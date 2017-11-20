@@ -1,0 +1,12 @@
+.tab-button {
+	background-color: #333333;
+	padding: 0;
+}
+
+ion-tabs.tabs-md .tabbar.show-tabbar {
+	height: 40px;
+}
+
+ion-tabs.tabs-ios .tabbar.show-tabbar {
+	border-top: 0;
+}
