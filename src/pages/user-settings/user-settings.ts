@@ -10,11 +10,11 @@ import { User } from '../../models/user';
 
 @IonicPage()
 @Component({
-  selector: 'page-user-profile',
-  templateUrl: 'user-profile.html',
+  selector: 'page-user-settings',
+  templateUrl: 'user-settings.html',
 })
 
-export class UserProfilePage {
+export class UserSettingsPage {
 
   userImage: string;
 
@@ -31,7 +31,6 @@ export class UserProfilePage {
     stateProvider.getUser()
       .then(val => {
         this.user = val;
-        console.log('User set to ' + JSON.stringify(this.user));
       })
     userProvider.getUsers()
       .then(val => {});
@@ -79,6 +78,10 @@ export class UserProfilePage {
         });
         alert.present();
       })
+  }
+
+  editUser() {
+    
   }
 
   createNewUser() {

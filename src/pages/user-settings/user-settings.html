@@ -15,13 +15,17 @@
     </div>
   </div>
   <ion-list class="settings-list" no-lines>
-    <button ion-item (click)="changeUserPushed()">
+    <button ion-item (click)="changeUserPushed()" detail-none>
       <h2>Change user</h2>
-      <p>Switch between existing users or create a new user</p>
+      <p>Switch between existing users/create new user</p>
     </button>
-    <button ion-item (click)="confirmDeletion()">
+    <button ion-item (click)="confirmDeletion()" detail-none>
       <h2>Delete current user</h2>
       <p>Change to the appropriate user before deleting</p>
+    </button>
+    <button ion-item (click)="editUser()" detail-none>
+      <h2>Edit user details</h2>
+      <p>Rename, edit subject list</p>
     </button>
   </ion-list>
 

@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { SettingsProvider } from '../../providers/settings/settings';
 
-import { UserProfilePage } from '../user-profile/user-profile';
+import { UserSettingsPage } from '../user-settings/user-settings';
 
 @IonicPage()
 @Component({
@@ -22,7 +22,7 @@ export class SettingsPage {
   }
 
   userButtonPushed() {
-    this.navCtrl.push(UserProfilePage);
+    this.navCtrl.push(UserSettingsPage);
   }
 
   ionViewDidEnter() {

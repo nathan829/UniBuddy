@@ -11,7 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SettingsPage } from '../pages/settings/settings';
 import { FlashCardsPage } from '../pages/flash-cards/flash-cards';
-import { UserProfilePage } from '../pages/user-profile/user-profile';
+import { UserSettingsPage } from '../pages/user-settings/user-settings';
 import { CreateUserPage } from '../pages/create-user/create-user';
 import { BlankPage } from '../pages/blank/blank';
 
@@ -30,7 +30,7 @@ import { UserProvider } from '../providers/user/user';
     TabsPage,
     SettingsPage,
     FlashCardsPage,
-    UserProfilePage,
+    UserSettingsPage,
     CreateUserPage,
     BlankPage
   ],
@@ -48,7 +48,7 @@ import { UserProvider } from '../providers/user/user';
     TabsPage,
     SettingsPage,
     FlashCardsPage,
-    UserProfilePage,
+    UserSettingsPage,
     CreateUserPage,
     BlankPage
   ],
