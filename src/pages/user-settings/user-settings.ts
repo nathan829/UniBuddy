@@ -5,6 +5,7 @@ import { StateProvider } from '../../providers/state/state';
 import { UserProvider } from '../../providers/user/user';
 
 import { CreateUserPage } from '../create-user/create-user';
+import { EditUserPage } from '../edit-user/edit-user';
 
 import { User } from '../../models/user';
 
@@ -81,7 +82,16 @@ export class UserSettingsPage {
   }
 
   editUser() {
-    
+    let editUserModal = this.modalCtrl.create(EditUserPage, {user: this.user});
+
+    editUserModal.onDidDismiss(data => {
+      if(data) {
+        this.userProvider.updateUser(this.user, data);
+        this.user = data;
+        this.stateProvider.setUser(this.user);
+      }
+    });
+    editUserModal.present();
   }
 
   createNewUser() {
@@ -126,7 +136,7 @@ export class UserSettingsPage {
   confirmDeletion() {
     let alert = this.alertCtrl.create({
       title: 'Confirmation',
-      subTitle: 'Are you sure you want to permanently delete the user \'' + this.user.name + '\' ?'
+      message: 'Are you sure you want to permanently delete the user \'' + this.user.name + '\' ?'
     })
     alert.addButton({
       text: 'Cancel'

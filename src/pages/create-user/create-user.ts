@@ -35,28 +35,17 @@ export class CreateUserPage {
     }
   }
 
-  back() {
-    console.log('back pushed');
+  cancel() {
     this.navCtrl.pop();
   }
 
   setUser() {
-    console.log('trying to set user');
     let user: User = {name: this.userName};
 
     this.errors = [];
-    var status = true;
 
     if(this.userName.length < 2) {
       this.errors.push('Needs to be 2 or more characters');
-      status = false;
-    }
-    else if(this.userName.length > 15) {
-      this.errors.push('Needs to be less than 16 characters');
-      status = false;
-    }
-
-    if(!status) {
       return;
     }
 
@@ -65,7 +54,7 @@ export class CreateUserPage {
 
     this.userProvider.getUsers()
       .then(val => {
-        status = this.userProvider.addUser(user);
+        var status = this.userProvider.addUser(user);
         if(!status) {
           this.errors.push('Name already exists');
         }

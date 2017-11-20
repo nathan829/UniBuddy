@@ -46,4 +46,8 @@ page-create-user {
 		}
 	}
 
+	.bar-button-default-md {
+		color: map-get($colors, primary);
+	}
+
 }

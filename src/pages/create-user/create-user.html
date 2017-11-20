@@ -1,11 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Create User</ion-title>
+    <ion-buttons start *ngIf="backButtonNeeded">
+      <button ion-button (click)="cancel()">
+        <span ion-text>Cancel</span>
+      </button>  
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
 <ion-content padding>
-  <h1 class="center">Create User</h1>
+  <!-- <h1 class="center">Create User</h1> -->
   
   <div class="card-container">
     <ion-card>
       <!-- <ion-card-header class="center">Name of User</ion-card-header>  -->
       <ion-card-content>
-        <ion-input placeholder="Enter name here..." [(ngModel)]="userName"></ion-input>
+        <ion-input placeholder="Enter name here..." [(ngModel)]="userName" maxlength="20"></ion-input>
         <div class="accept-container">
           <button ion-button (click)="setUser()">Accept</button>
         </div>
@@ -16,10 +29,6 @@
         </ion-list>
       </ion-card-content>
     </ion-card>
-  </div>
-
-  <div *ngIf="backButtonNeeded" class="backButton">
-    <button ion-button clear (click)="back()">Cancel</button>
   </div>
   
 </ion-content>

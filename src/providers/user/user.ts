@@ -65,6 +65,15 @@ export class UserProvider {
     this.save();
   }
 
+  updateUser(userWas: User, userNow: User) {
+    var index = this.getIndex(userWas);
+
+    if(index < 0) return;
+
+    this.users[index] = userNow;
+    this.save();
+  }
+
   removeUser(user: User) {
     var index = this.getIndex(user);
 

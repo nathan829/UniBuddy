@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>EditUser</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="cancel()">
+        <span ion-text>Cancel</span>
+      </button>  
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button (click)="save()">
+        <span ion-text>Save</span>
+      </button>  
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list no-lines>
+    <ion-item class="name-item" no-lines>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
+  </ion-list>
+</ion-content>

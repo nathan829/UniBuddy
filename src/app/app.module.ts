@@ -14,6 +14,7 @@ import { FlashCardsPage } from '../pages/flash-cards/flash-cards';
 import { UserSettingsPage } from '../pages/user-settings/user-settings';
 import { CreateUserPage } from '../pages/create-user/create-user';
 import { BlankPage } from '../pages/blank/blank';
+import { EditUserPage } from '../pages/edit-user/edit-user';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,7 +33,8 @@ import { UserProvider } from '../providers/user/user';
     FlashCardsPage,
     UserSettingsPage,
     CreateUserPage,
-    BlankPage
+    BlankPage,
+    EditUserPage
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import { UserProvider } from '../providers/user/user';
     FlashCardsPage,
     UserSettingsPage,
     CreateUserPage,
-    BlankPage
+    BlankPage,
+    EditUserPage
   ],
   providers: [
     StatusBar,

@@ -18,3 +18,17 @@ ion-content.content {
 	background: #1e1e1e;
 	color: white;
 }
+
+ion-header.header .toolbar-background {
+	background-color: #333333;
+}
+
+ion-title.title {
+	.toolbar-title {
+		color: map-get($colors, light);
+	}
+}
+
+ion-navbar.toolbar-md {
+	min-height: 44px;
+}
