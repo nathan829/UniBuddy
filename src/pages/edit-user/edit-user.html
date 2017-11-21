@@ -24,4 +24,41 @@
       <ion-input type="text" [(ngModel)]="name"></ion-input>
     </ion-item>
   </ion-list>
+  <div class="grid-container">
+    <span class="grid-title">Subjects</span>
+    <ion-grid text-center>
+      <ion-row *ngFor="let count of [0,1,2]">
+        <ion-col>
+          <div *ngIf="cellVisible(1+2*count)">
+            <div *ngIf="nextToAdd(1+2*count)" class="add-button">
+              <button color="light" clear full ion-button (click)="addButtonPressed()"><ion-icon name="add"></ion-icon></button>
+            </div>
+            <button color="light" ion-button clear full *ngIf="!nextToAdd(1+2*count)">
+              {{ subjects[2*count].code }}
+            </button>
+          </div>
+          <div *ngIf="!cellVisible(1+2*count)">
+            <div>
+              <button color="light"  disabled="true" clear full ion-button></button>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div *ngIf="cellVisible(2+2*count)">
+            <div *ngIf="nextToAdd(2+2*count)" class="add-button">
+              <button color="light" clear full ion-button (click)="addButtonPressed()"><ion-icon name="add"></ion-icon></button>
+            </div>
+            <button color="light" ion-button clear full *ngIf="!nextToAdd(2+2*count)">
+              {{ subjects[2*count+1].code }}
+            </button>
+          </div>
+          <div *ngIf="!cellVisible(2+2*count)">
+            <div>
+              <button color="light"  disabled="true" clear full ion-button></button>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>

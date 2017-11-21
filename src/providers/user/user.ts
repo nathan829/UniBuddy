@@ -36,17 +36,25 @@ export class UserProvider {
   }
 
   addUser(user: User): boolean {
-      for(var i = 0; i < this.users.length; ++i) {
-        if(this.users[i].name == user.name) {
-          return false;
+      if(this.users) {
+        for(var i = 0; i < this.users.length; ++i) {
+          if(this.users[i].name == user.name) {
+            return false;
+          }
         }
-      }
 
-      this.users.push(user);
-      this.moveToStart(user);
-      
-      this.save();
-      return true;
+        this.users.push(user);
+        this.moveToStart(user);
+        
+        this.save();
+        return true;
+      }
+      else {
+        this.getUsers()
+          .then(val => {
+            this.addUser(user);
+          })
+      }
   }
 
   moveToStart(user: User) {
@@ -63,6 +71,21 @@ export class UserProvider {
 
     this.users[0] = removing;
     this.save();
+  }
+
+  userExists(name: string): boolean {
+    if(this.users) {
+      console.log('users exist');
+      return this.getIndexOfName(name) != -1;
+    }
+    else {
+      console.log('getting users');
+      this.getUsers()
+        .then(val => {
+          console.log('about to return');
+          return this.userExists(name);
+        })
+    }
   }
 
   updateUser(userWas: User, userNow: User) {
@@ -86,8 +109,12 @@ export class UserProvider {
   private getIndex(user: User): number {
     if(!user) return -1;
 
+    return this.getIndexOfName(user.name);
+  }
+
+  private getIndexOfName(name: string): number {
     for(var i = 0; i < this.users.length; ++i) {
-      if(user.name === this.users[i].name) {
+      if(name === this.users[i].name) {
         return i;
       }
     }

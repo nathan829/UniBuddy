@@ -6,7 +6,6 @@ page-create-user {
 	.card-container {
 		position: absolute;
 		top: 30%;
-		bottom: 0;
 		left: 0;
 		right: 0;
 		text-align: center;
@@ -29,25 +28,113 @@ page-create-user {
 		text-align: center;
 	}
 
-	.backButton {
-		position: absolute;
-		top: 2px;
-		left: 5px;
-
-		.button-md {
-			margin-top: 10px;
-		}
-	}
-
-	ion-list.errors {
-		ion-item {
-			color: red;
-			font-size: 12px;
-		}
+	p.name-errors {
+		color: #e87040;
 	}
 
 	.bar-button-default-md {
 		color: map-get($colors, primary);
 	}
+
+	button.swiper-pagination-bullet {
+		background-color: map-get($colors, primary);
+	}
+
+	ion-item.name-item.item {
+		background-color: transparent;
+		color: white;
+
+		ion-input.input {
+			border-bottom: 2px solid #777777;
+		}
+	}
+
+	.list-md .item-input:last-child {
+		border-bottom: none;
+	}
+
+	.grid-container {
+		padding-top: 40px;
+
+		span.grid-title {
+			padding-left: 16px;
+			font-size: 14px;
+			color: #999999;
+		}
+	}
+
+	.name-container {
+		position: absolute;
+		top: 30%;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+
+	// ion-slides.slides {		// This may be causing the problem
+	// 	position: absolute;
+	// 	top: 0;
+	// 	left: 0;
+	// 	right: 0;
+	// 	bottom: 0;
+	// 	padding: 10px 10px 10px 12px;
+	// 	margin-bottom: 30px;
+	// }
+
+	ion-list.list.navigation-buttons {
+		// position: absolute;
+		// top: 0;
+		// left: 0;
+		// right: 0;
+		margin-bottom: 0;
+
+		ion-item.item {
+			background-color: transparent;
+
+			button.button {
+				font-size: 16px;
+			}
+		}
+	}
+
+	ion-item.item {
+		background-color: transparent;
+	}
+
+	// div.slide-zoom {
+	// 	height: 100%;
+	// }
+
+	h3.attach-subjects-heading {
+		margin: 0;
+	}
+
+	ion-label.label {
+		color: #999999;
+	}
+
+	ion-col.col {
+		margin: 5px 5px 5px 5px;
+
+		div.add-button {
+			border: 1px solid map-get($colors, light);
+
+		}
+	}
+
+	button.button-md {
+		text-transform: none;
+	}
+
+	.finished-button {
+		width: 100%;
+		padding-right: 25px;
+		padding-top: 10px;
+		
+		button.button {
+			float: right;
+		}
+	}
+	
 
 }

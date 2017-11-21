@@ -11,24 +11,53 @@
 
 </ion-header>
 
-<ion-content padding>
-  <!-- <h1 class="center">Create User</h1> -->
+ <ion-content padding>
   
-  <div class="card-container">
-    <ion-card>
-      <!-- <ion-card-header class="center">Name of User</ion-card-header>  -->
-      <ion-card-content>
-        <ion-input placeholder="Enter name here..." [(ngModel)]="userName" maxlength="20"></ion-input>
-        <div class="accept-container">
-          <button ion-button (click)="setUser()">Accept</button>
-        </div>
-        <ion-list class="errors">
-          <ion-item *ngFor="let error of errors">
-            {{ error }}
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-  </div>
-  
-</ion-content>
+      <ion-list no-lines>
+        <ion-item class="name-item" no-lines>
+          <ion-label floating>Name</ion-label>
+          <ion-input type="text" [(ngModel)]="userName"></ion-input>
+        </ion-item>
+      </ion-list>
+      
+      <div class="grid-container">
+        <span class="grid-title">Subjects</span>
+        <ion-grid text-center>
+          <ion-row *ngFor="let count of [0,1,2]">
+            <ion-col>
+              <div *ngIf="cellVisible(1+2*count)">
+                <div *ngIf="nextToAdd(1+2*count)" class="add-button">
+                  <button color="light" clear full ion-button (click)="addButtonPressed()"><ion-icon name="add"></ion-icon></button>
+                </div>
+                <button color="light" ion-button clear full *ngIf="!nextToAdd(1+2*count)">
+                  {{ subjects[2*count].code }}
+                </button>
+              </div>
+              <div *ngIf="!cellVisible(1+2*count)">
+                <div>
+                  <button color="light"  disabled="true" clear full ion-button></button>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div *ngIf="cellVisible(2+2*count)">
+                <div *ngIf="nextToAdd(2+2*count)" class="add-button">
+                  <button color="light" clear full ion-button (click)="addButtonPressed()"><ion-icon name="add"></ion-icon></button>
+                </div>
+                <button color="light" ion-button clear full *ngIf="!nextToAdd(2+2*count)">
+                  {{ subjects[2*count+1].code }}
+                </button>
+              </div>
+              <div *ngIf="!cellVisible(2+2*count)">
+                <div>
+                  <button color="light"  disabled="true" clear full ion-button></button>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div class="finished-button">
+          <button outline ion-button (click)="inputFinished()">Finished</button>
+        </div> 
+      </div>
+</ion-content> 

@@ -20,7 +20,7 @@ export class MyApp {
   newUserNeeded: {status: boolean};
 
   constructor(platform: Platform, 
-              statusBar: StatusBar,
+              public statusBar: StatusBar,
               splashScreen: SplashScreen,
               public settingsProvider: SettingsProvider,
               public stateProvider: StateProvider) {
@@ -29,7 +29,8 @@ export class MyApp {
       
       statusBar.overlaysWebView(false);
 
-      statusBar.backgroundColorByHexString('#161616');
+      // statusBar.backgroundColorByHexString('#161616');
+      statusBar.backgroundColorByHexString('#333333');
 
       splashScreen.hide();
     });
