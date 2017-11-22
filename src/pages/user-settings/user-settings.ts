@@ -39,6 +39,10 @@ export class UserSettingsPage {
     this.userImage = './assets/user-image-default.svg';
   }
 
+  onPageWillLeave() {
+    console.log('leaving');
+  }
+
   changeUserPushed() {
     this.userProvider.getUsers()
       .then(users => {

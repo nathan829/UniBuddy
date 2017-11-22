@@ -10,6 +10,7 @@ page-user-settings {
 		.profile-image-container {
 			text-align: center;
 			width: 35%;
+			max-width: 150px;
 			margin: 0 auto;
 		}
 	}
@@ -28,6 +29,10 @@ page-user-settings {
 				color: white;
 			}
 		}
+	}
+
+	ion-alert.alert-ios .alert-wrapper {
+		background-color: red;
 	}
 
 }

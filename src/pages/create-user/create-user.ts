@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, AlertController, ViewController, NavParams } from 'ionic-angular';
 
 import { TabsPage } from '../tabs/tabs';
 
@@ -23,13 +23,12 @@ export class CreateUserPage {
 
   nameErrors: string[];
 
-  // @ViewChild(Slides) slides: Slides;
-
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public stateProvider: StateProvider,
               public userProvider: UserProvider,
-              public viewCtrl: ViewController) {
+              public viewCtrl: ViewController,
+              public alertCtrl: AlertController) {
 
     this.userName = '';
     this.nameErrors = [];
@@ -41,7 +40,27 @@ export class CreateUserPage {
   }
 
   cancel() {
-    this.navCtrl.pop();
+    if(this.subjects.length > 0) {
+      let confirmationAlert = this.alertCtrl.create({
+        title: 'Confirmation',
+        message: 'Are you sure you want to abandon your creation?'
+      });
+
+      confirmationAlert.addButton({
+        text: 'Go Back'
+      });
+      confirmationAlert.addButton({
+        text: 'Okay',
+        handler: data => {
+          this.navCtrl.pop();
+        }
+      })
+
+      confirmationAlert.present();
+    }
+    else {
+      this.navCtrl.pop();
+    }
   }
 
   submitNewUser(user: User) {
@@ -63,12 +82,6 @@ export class CreateUserPage {
     return false;
   }
 
-  backButtonPushed() {
-    // this.slides.lockSwipes(false);
-    // this.slides.slidePrev();
-    // this.slides.lockSwipes(true);
-  }
-
   nextToAdd(index: number): boolean {
     return this.subjects.length == index-1;
   }
@@ -79,14 +92,19 @@ export class CreateUserPage {
 
   validate() {
     if(this.userName.length < 2) {
-      this.nameErrors = ['Minimum 2 characters'];     // <------ Change these
+      this.nameErrors = ['Minimum 2 characters'];
     }
     else if(this.userProvider.userExists(this.userName)) {
-      this.nameErrors = ['Name already exists'];      // <------ Change these
+      this.nameErrors = ['Name already exists'];
     }
     else {
       this.nameErrors = [];
     }
+  }
+
+  inputChanged() {
+    this.nameErrors = [];
+    // this.validate();
   }
 
   inputFinished() {
@@ -94,7 +112,27 @@ export class CreateUserPage {
 
     if(this.nameErrors.length == 0) {
       var user = {name: this.userName, subjects: this.subjects};
-      this.submitNewUser(user);
+      if(this.subjects.length == 0) {
+        let confirmationAlert = this.alertCtrl.create({
+          title: 'Confirmation',
+          message: 'Proceed without subjects added?'
+        });
+
+        confirmationAlert.addButton({
+          text: 'Go Back'
+        });
+        confirmationAlert.addButton({
+          text: 'Okay',
+          handler: data => {
+            this.submitNewUser(user);
+          }
+        })
+
+        confirmationAlert.present();
+      }
+      else {
+        this.submitNewUser(user);
+      }
     }
   }
 

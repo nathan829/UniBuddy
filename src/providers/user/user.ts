@@ -75,14 +75,11 @@ export class UserProvider {
 
   userExists(name: string): boolean {
     if(this.users) {
-      console.log('users exist');
       return this.getIndexOfName(name) != -1;
     }
     else {
-      console.log('getting users');
       this.getUsers()
         .then(val => {
-          console.log('about to return');
           return this.userExists(name);
         })
     }
@@ -114,7 +111,7 @@ export class UserProvider {
 
   private getIndexOfName(name: string): number {
     for(var i = 0; i < this.users.length; ++i) {
-      if(name === this.users[i].name) {
+      if(name.trim() === this.users[i].name) {
         return i;
       }
     }

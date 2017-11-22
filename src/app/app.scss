@@ -32,3 +32,70 @@ ion-title.title {
 ion-navbar.toolbar-md {
 	min-height: 44px;
 }
+
+// button.bar-button-md {
+// 	text-transform: none;
+// 	font-size: 15px;
+// }
+
+ion-alert.alert-md {
+	// border: none;
+
+	.alert-wrapper {
+		background-color: #eeeeee;
+		border-radius: 10px;
+	}
+
+	.alert-radio-group {
+		border: none;
+	}
+
+	.alert-head {
+		padding-left: 25px;
+		padding-top: 20px;
+		padding-bottom: 10px;
+	}
+
+	.alert-button-group {
+		padding: 0;
+		padding: 0 5px 5px 0;
+		
+		button.alert-button {
+			color: #555555;
+		}
+	}
+}
+
+ion-alert.alert-ios {
+	.alert-wrapper {
+		background-color: #eeeeee;
+		border-radius: 10px;
+
+		.alert-message:not(:empty) {
+			margin-bottom: 15px;
+			padding-bottom: 0;
+		}
+
+		.alert-message:empty {
+			padding: 0;
+			margin: 0;
+		}
+		
+	}
+
+	.alert-radio-group {
+		border: none;
+	}
+
+	.alert-button-group {
+		
+		button.alert-button {
+			color: #555555;
+			// border: none;
+		}
+	}
+}
+
+p.invisible-text {
+	color: transparent;
+}
