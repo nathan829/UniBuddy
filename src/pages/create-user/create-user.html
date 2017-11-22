@@ -8,7 +8,7 @@
       </button>  
     </ion-buttons>
     <ion-buttons end>
-      <button color="primary" clear ion-button (click)="inputFinished()" class="accept-button">Accept</button>
+      <button color="primary" clear ion-button (click)="inputFinished()">Accept</button>
     </ion-buttons>
   </ion-navbar>
 
@@ -36,7 +36,7 @@
                 <div *ngIf="nextToAdd(1+2*count)" class="add-button">
                   <button color="light" clear full ion-button (click)="addButtonPressed()" class="grid-button"><ion-icon name="add"></ion-icon></button>
                 </div>
-                <button color="light" ion-button clear full *ngIf="!nextToAdd(1+2*count)" class="grid-button">
+                <button color="light" ion-button clear full *ngIf="!nextToAdd(1+2*count)" class="grid-button" (click)="openSubject(2*count)">
                   {{ subjects[2*count].code }}
                 </button>
               </div>
@@ -51,7 +51,7 @@
                 <div *ngIf="nextToAdd(2+2*count)" class="add-button">
                   <button color="light" clear full ion-button (click)="addButtonPressed()" class="grid-button"><ion-icon name="add"></ion-icon></button>
                 </div>
-                <button color="light" ion-button clear full *ngIf="!nextToAdd(2+2*count)" class="grid-button">
+                <button color="light" ion-button clear full *ngIf="!nextToAdd(2+2*count)" class="grid-button" (click)="openSubject(2*count+1)">
                   {{ subjects[2*count+1].code }}
                 </button>
               </div>

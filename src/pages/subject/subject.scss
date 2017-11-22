@@ -1,3 +1,33 @@
 page-subject {
+	p.errors {
+		color: #e87040
+	}
+
+	ion-item.item.code-item {
+		
+	}
+
+	ion-item.item {
+		background-color: transparent;
+		color: map-get($colors, light);
+	}
+
+	ion-item.item.errors-item {
+		// background-color: red;
+
+		ion-label.label {
+			margin: 0;
+		}
+
+		.input-wrapper {
+			height: 20px;
+		}
+
+		.item-inner {
+			height: 20px;
+		}
+
+		
+	}
 
 }

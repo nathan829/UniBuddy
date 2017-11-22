@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, ViewController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, ModalController, ViewController, NavParams } from 'ionic-angular';
 
 import { TabsPage } from '../tabs/tabs';
+import { SubjectPage } from '../subject/subject';
 
 import { User } from '../../models/user';
 import { Subject } from '../../models/subject';
@@ -28,7 +29,8 @@ export class CreateUserPage {
               public stateProvider: StateProvider,
               public userProvider: UserProvider,
               public viewCtrl: ViewController,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController,
+              public modalCtrl: ModalController) {
 
     this.userName = '';
     this.nameErrors = [];
@@ -80,6 +82,19 @@ export class CreateUserPage {
       return true;
     }
     return false;
+  }
+
+  openSubject(index: number) {
+    console.log('trying to read subject indexed at ' + index + ' from ' + JSON.stringify(this.subjects));
+    let subjectModal = this.modalCtrl.create(SubjectPage, {subject: this.subjects[index]});
+
+    subjectModal.onDidDismiss(val => {
+      if(val) {
+        this.subjects[index] = val;
+      }
+    });
+
+    subjectModal.present();
   }
 
   nextToAdd(index: number): boolean {
